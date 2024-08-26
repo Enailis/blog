@@ -1,0 +1,12 @@
+[
+    {
+       "name":"Spotify2AppleMusic",
+       "url":"https://github.com/Enailis/Spotify2AppleMusic",
+       "desc":"A simple python script to transfer Spotify playlists to Apple Music"
+    },
+    {
+        "name":"Advent of Code 2022",
+        "url":"https://github.com/Enailis/Advent-of-Code-2022",
+        "desc":"My solutions for Advent of Code 2022 made in python (top 96 on day 17)"
+     }
+]

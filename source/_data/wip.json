@@ -1,0 +1,11 @@
+[
+    {
+       "name":"Food Distrib",
+       "url":"",
+       "desc":"A harware project to automatically distribute food to my cat"
+    },
+    {
+        "name":"Dice Roller",
+        "desc":"A hardware project to replace my dice when playing DnD with my friends"
+     }
+]
