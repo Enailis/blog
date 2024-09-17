@@ -1,11 +1,15 @@
 [
-    {
-       "name":"Food Distrib",
-       "url":"",
-       "desc":"A harware project to automatically distribute food to my cat"
-    },
-    {
-        "name":"Dice Roller",
-        "desc":"A hardware project to replace my dice when playing DnD with my friends"
-     }
+   {
+      "name":"Food Distrib",
+      "url":"",
+      "desc":"A harware project to automatically distribute food to my cat"
+   },
+   {
+      "name":"Dice Roller",
+      "desc":"A hardware project to replace my dice when playing DnD with my friends"
+   },
+   {
+      "name":"AoC-2023",
+      "desc":"maybe i'll publish my solutions one day, i've also got a top 100 this year"
+   }
 ]
