@@ -38,7 +38,7 @@ the RFC from 1987 talks briefly about why and how a cache system was implemented
 
 ### find the DNS
 
-the first thing to do is get the list of all available DNS. most of them are firewalled off from the public internet for reasons i won't detail here but some of them are misconfigured which allows to use their resolvers. in total there's around 4.3 billion IPv4 but if we remove the unreachable IPs defined by the [RFC 1928](https://datatracker.ietf.org/doc/html/rfc1918) and the IPs that [don't want to be scanned](https://github.com/robertdavidgraham/masscan/blob/f04707a891962f8185c4f6b6dab9238bbb9ffb59/data/exclude.conf) we're down to around 4 billion IPv4 which is still gigantic but doable.
+the first thing to do is get the list of all available DNS. most of them are firewalled off from the public internet for reasons i won't detail here but some of them are misconfigured which allows to use their resolvers. in total there's around 4.3 billion IPv4 but if we remove the unreachable IPs defined by the [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918) and the IPs that [don't want to be scanned](https://github.com/robertdavidgraham/masscan/blob/f04707a891962f8185c4f6b6dab9238bbb9ffb59/data/exclude.conf) we're down to around 4 billion IPv4 which is still gigantic but doable.
 
 to scan them all, we need to be able to scan for open resolvers (so something that reply to port 53 on UDP) but it needs to be a DNS that can look up for domain names, not an authoritative DNS. to do so, i'll be using [masscan](https://github.com/robertdavidgraham/masscan). to be sure that my queries give me exactly what i want i'll look at the response from them and only accept answers from a DNS with authoritative answer set to something else than 1.
 
