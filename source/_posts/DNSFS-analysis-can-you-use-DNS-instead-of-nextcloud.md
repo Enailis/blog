@@ -16,25 +16,25 @@ benjojo, the guy behind the project, also did a [blogpost](https://blog.benjojo.
 
 ## what is a DNS?
 
-DNS are the base for everything that we know on the internet even if most people don't even know it exists. *almost* everything we can access on the web is going through a DNS name. the goal of a DNS is to create a link between a domain name and an IP. the concept of domain names and DNS is getting a little old now, the first RFC about DNS was published in [november 1987](https://datatracker.ietf.org/doc/html/rfc1035).
+DNS are the base for everything that we know on the internet even if most people don't even know it exists. *almost* everything we can access on the web is going through a DNS name. the goal of a DNS is to create a link between a domain name and an IP. the concept of domain names and DNS is getting a little old now, the first RFC about DNS was published in [November 1987](https://datatracker.ietf.org/doc/html/rfc1035).
 
 there's 2 main kinds of DNS: recursive DNS and root DNS
 
 ### recursive DNS
 
-this is the DNS your browser first contacts, there's hundreds and thousands of them around the world. you probably know some of them like `1.1.1.1` from CloudFlare, `8.8.8.8` from Google or `9.9.9.9` from Quad9. most people don't really care about what DNS provider they use and let their ISP chose for them.
+this is the DNS your browser first contacts. there's hundreds and thousands of them around the world. you probably know some of them like `1.1.1.1` from CloudFlare, `8.8.8.8` from Google or `9.9.9.9` from Quad9. most people don't really care about what DNS provider they use and let their ISP chose for them.
 
-everytime you search for something on the internet your browser asks "do you know the IP of that domain name?" to the DNS, to which he (most probably) answer "nope" but what makes them special is that they know where to find them.
+everytime you search for something on the internet your browser asks "do you know the IP of that domain name?" to the DNS, to which he *most of the time* answer "nope" but what makes them special is that they know where to find them.
 
 ### root DNS (a kind of authoritative DNS)
 
-kinda like a phone directory, the root servers (and authoritative DNS) have a dictionnary that matches domain names with IP addresses within a define region. once the recursive DNS has made its request, the root server will redirect it towards the top level domain DNS server that will redirect towards the authoritative DNS server. for example for accessing my website, this is what happens:
+kinda like a phone directory, the root servers (and authoritative DNS) have a dictionary that matches domain names with IP addresses within a define region. once the recursive DNS has made its request, the root server will redirect it towards the top level domain DNS server that will redirect towards the authoritative DNS server. for example for accessing my website, this is what happens:
 
 {% asset_img DNS_diagram.png "Simplified diagram of how DNS works" %}
 
 ## how can you store anything in a DNS?
 
-the RFC from 1987 talks briefly about why and how a cache system was implemented in the DNS. to put it simply: we don't want to make an infinite amount of query so we cache some of them for a predefined amount of time. since people love [parasitic computing](https://en.wikipedia.org/wiki/Parasitic_computing), this way of working has been used to do some other things like temporary storage like DNSFS for example. this is not the first time that a network thingy has been used as a file system, a few years ago yarrick published [pingfs](https://github.com/yarrick/pingfs) which is essentialy the same thing but using the ping system.
+the RFC from 1987 talks briefly about why and how a cache system was implemented in the DNS. to put it simply: we don't want to make an infinite number of query so we cache some of them for a predefined amount of time. since people love [parasitic computing](https://en.wikipedia.org/wiki/Parasitic_computing), this way of working has been used to do some other things like temporary storage like DNSFS for example. this is not the first time that a network thingy has been used as a file system, a few years ago yarrick published [pingfs](https://github.com/yarrick/pingfs) which is essentially the same thing but using the ping system.
 
 ### find the DNS
 
@@ -65,7 +65,7 @@ after doing this i had ~350.000 resolvers that could store data for 21h in avera
 
 ## let's look at the code
 
-now that we know all of this, we need to setup a way to make all of this work. and by "we", i mean benjojo. looking at the code of [DNSFS](https://github.com/benjojo/dnsfs/tree/master) we can see that we found *almost* the same results about the DNS servers.
+now that we know all of this, we need to setup a way to make all of this work. and by "*we*", i mean benjojo. looking at the code of [DNSFS](https://github.com/benjojo/dnsfs/tree/master) we can see that we found *almost* the same results about the DNS servers.
 
 ### how is that data stored?
 
